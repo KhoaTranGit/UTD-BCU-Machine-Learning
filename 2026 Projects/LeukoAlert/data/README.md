@@ -53,4 +53,3 @@ validation = data.loc[data["evaluation_cohort"] == "internal_validation"].copy()
 - Fit additional preprocessing on training data only. Reserve external validation and test cohorts for evaluation after model selection.
 - Site files were concatenated with provenance fields added; no additional imputation or resampling was performed. The released values should not be assumed to be raw clinical measurements.
 - The downloaded release has 446,663 rows and 74 predictors, differing from the paper's reported 446,558 records and 72 features.
-- Keep the dataset out of Git; track this README and code. Attribute the dataset creator and study authors when sharing results.
