@@ -1,3 +1,13 @@
+from sklearn.metrics import (
+    average_precision_score,
+    roc_auc_score,
+    precision_score,
+    recall_score,
+    f1_score,
+    balanced_accuracy_score
+)
+
+
 def evaluate_model(model, datasets, threshold=0.5):
     """
     Evaluate a trained binary classifier across internal validation,
