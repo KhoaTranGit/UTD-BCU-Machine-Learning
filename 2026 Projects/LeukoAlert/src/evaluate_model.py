@@ -36,7 +36,7 @@ def evaluate_model(model, datasets, threshold=0.5):
     cloned_model = clone(model)
     cloned_model.fit(X_train, y_train)
     
-    for data_split in ["int_val", "ext_val", "test"]:
+    for data_split in ["val_int", "val_ext", "test"]:
         X = datasets[data_split]["X"]
         y = datasets[data_split]["y"]
 
