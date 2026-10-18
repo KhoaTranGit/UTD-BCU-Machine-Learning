@@ -6,7 +6,7 @@ from sklearn.metrics import (
     f1_score,
     balanced_accuracy_score
 )
-
+from sklearn.base import clone
 
 def evaluate_model(model, datasets, threshold=0.5):
     """
@@ -32,12 +32,16 @@ def evaluate_model(model, datasets, threshold=0.5):
     """
     results = []
 
+    X_train, y_train = datasets["train"]["X"], datasets["train"]["y"]
+    cloned_model = clone(model)
+    cloned_model.fit(X_train, y_train)
+    
     for data_split in ["int_val", "ext_val", "test"]:
         X = datasets[data_split]["X"]
         y = datasets[data_split]["y"]
 
         # Predicted probabilities
-        y_probs = model.predict_proba(X)[:, 1]
+        y_probs = cloned_model.predict_proba(X)[:, 1]
         # Convert probabilities to binary predictions
         y_pred = (y_probs >= threshold).astype(int)
 
