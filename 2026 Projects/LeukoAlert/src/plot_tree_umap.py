@@ -47,7 +47,11 @@ def plot_tree_umap(
 
     # Extract leaf assignments
     if model.__class__.__module__.startswith("lightgbm"):
-        leaves = model.predict(X, pred_leaf=True)
+    leaves = model.predict(X, pred_leaf=True)
+
+    elif model.__class__.__module__.startswith("catboost"):
+        leaves = model.calc_leaf_indexes(X)
+    
     else:
         leaves = model.apply(X)
 
