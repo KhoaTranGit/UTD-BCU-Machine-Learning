@@ -30,7 +30,7 @@ LeukoAlert/
 │   ├── leukoalert_all_cohorts.csv.gz
 │   └── README.md
 ├── notebooks/
-│   └── 1_leukoAlert_analysis_baselines.ipynb   # full baseline analysis
+│   └── 1_full_models_comparisons.ipynb         # full baseline analysis
 ├── src/
 │   ├── evaluate_model.py     # AP, ROC-AUC, precision, recall, F1, balanced accuracy per split
 │   ├── plot_umap.py          # 2D UMAP of the feature space
